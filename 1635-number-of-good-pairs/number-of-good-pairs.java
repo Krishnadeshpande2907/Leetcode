@@ -5,7 +5,7 @@ class Solution {
         for(int n : nums){
             int count = map.getOrDefault(n, 0);
             goodNum+=count;
-            map.put(n, ++count);
+            map.put(n, count+1);
         }
         return goodNum;
     }
