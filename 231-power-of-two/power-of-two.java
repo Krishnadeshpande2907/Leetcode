@@ -7,6 +7,11 @@ class Solution {
 
         // Takes a lot of memory
 
-        return n>0 && Integer.bitCount(n) == 1;
+        int a = 0;
+        while(true){
+            if(Math.pow(2,a) == n)  return true;
+            else if(Math.pow(2,a)< n)   a++;
+            else    return false;
+        }
     }
 }
