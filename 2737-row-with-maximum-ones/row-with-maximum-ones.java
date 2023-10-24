@@ -12,7 +12,6 @@ class Solution {
                 maxIndex = i;
             }
         }
-        int[] ans = {maxIndex, maxOnes};
-        return ans;
+        return new int[]{maxIndex, maxOnes};
     }
 }
