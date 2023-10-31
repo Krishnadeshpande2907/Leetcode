@@ -1,11 +1,11 @@
 class Solution {
     public int[] sortByBits(int[] arr) {
-        int len = arr.length;
-        for(int i = 0; i<len; i++)  arr[i] += Integer.bitCount(arr[i])*10001;
+        // int len = arr.length;
+        for(int i = 0; i<arr.length; i++)  arr[i] += Integer.bitCount(arr[i])*10001;
 
         Arrays.sort(arr);
 
-        for(int i = 0; i<len; i++)  arr[i] = arr[i]%10001;
+        for(int i = 0; i<arr.length; i++)  arr[i] = arr[i]%10001;
 
         return arr;
     }
