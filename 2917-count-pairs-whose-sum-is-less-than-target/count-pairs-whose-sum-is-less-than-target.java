@@ -3,15 +3,12 @@ class Solution {
         Collections.sort(nums);
         int size = nums.size();
         int count = 0;
-        int i = 0;
-        // for(int i = 0; i<size-1; i++){
-        while(i<size){
+        for(int i = 0; i<size-1; i++){
             int num1 = nums.get(i);
             for(int j = i+1; j<size; j++){
                 if(num1 + nums.get(j) < target)  count++;
-                else    break;
+                else    j = size;
             }
-            i++;
         }
         return count;
     }
