@@ -1,9 +1,8 @@
 class Solution {
     public int[] dailyTemperatures(int[] temp) {
-        int len = temp.length;
-        int[] ans = new int[len];
+        int[] ans = new int[temp.length];
         Stack<Integer> days = new Stack<Integer>();
-        for(int i = 0; i<len; i++){
+        for(int i = 0; i<temp.length; i++){
             while(!days.isEmpty() && temp[days.peek()]<temp[i]){
                 ans[days.peek()] = i-days.pop();
             }
