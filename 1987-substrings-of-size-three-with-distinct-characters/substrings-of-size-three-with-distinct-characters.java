@@ -1,10 +1,11 @@
 class Solution {
     public int countGoodSubstrings(String s) {
         int count = 0;
-        for(int i = 0; i<s.length()-2; i++){
-            Set<Character> set = new HashSet<Character>();
-            for(char c : s.substring(i, i+3).toCharArray()) set.add(c);
-            if(set.size()==3)   count++;
+        char[] arr = s.toCharArray();
+        for(int i = 0; i<arr.length-2; i++){
+            // Set<Character> set = new HashSet<Character>();
+            // for(char c : s.substring(i, i+3).toCharArray()) set.add(c);
+            if(arr[i] != arr[i+1] && arr[i] != arr[i+2] && arr[i+1] != arr[i+2])   count++;
         }
         return count;
     }
