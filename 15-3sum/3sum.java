@@ -1,8 +1,8 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
         Set<List<Integer>> s = new HashSet<>();
-        List<List<Integer>> output = new ArrayList<>();
         for(int i = 0; i<nums.length; i++){
             int j = i+1;
             int k = nums.length-1;
@@ -13,11 +13,11 @@ class Solution {
                     j++;
                     k--;
                 }
-                else if(sum < 0)    j++;
+                else if(sum<0)  j++;
                 else    k--;
             }
         }
-        output.addAll(s);
-        return output;
+        result.addAll(s);
+        return result;
     }
 }
