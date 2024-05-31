@@ -17,7 +17,7 @@ class MyStack {
     
     public int top() {return st1.peek();}
     
-    public boolean empty() {return (st1.peek()==null);}
+    public boolean empty() {return st1.isEmpty();}
 }
 
 /**
