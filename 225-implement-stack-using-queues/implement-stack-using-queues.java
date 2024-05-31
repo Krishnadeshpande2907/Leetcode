@@ -13,18 +13,11 @@ class MyStack {
         while(!st2.isEmpty())   st1.add(st2.poll());
     }
     
-    public int pop() {
-        return st1.poll();
-    }
+    public int pop() {return st1.poll();}
     
-    public int top() {
-        return st1.peek();
-    }
+    public int top() {return st1.peek();}
     
-    public boolean empty() {
-        // if(st1.peek()!=null)    return true
-        return (st1.peek()==null);
-    }
+    public boolean empty() {return (st1.peek()==null);}
 }
 
 /**
