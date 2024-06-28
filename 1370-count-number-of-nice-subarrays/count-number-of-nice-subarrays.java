@@ -6,9 +6,7 @@ class Solution {
         int ans = 0, t = 0;
         for (int v : nums) {
             t += v & 1;
-            if (t - k >= 0) {
-                ans += cnt[t - k];
-            }
+            if (t - k >= 0) ans += cnt[t - k];
             cnt[t]++;
         }
         return ans;
