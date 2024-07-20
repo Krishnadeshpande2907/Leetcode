@@ -4,12 +4,14 @@ class Solution {
         int i = 0, j = 0, count = 0;
         HashMap<Character, Integer> track = new HashMap<>();
         while(j<len){
-            track.put(s.charAt(j), track.getOrDefault(s.charAt(j), 0) + 1);
+            char c = s.charAt(j);
+            track.put(c, track.getOrDefault(c, 0) + 1);
             while(track.getOrDefault('a', 0) >= 1 
             && track.getOrDefault('b', 0) >= 1 
             && track.getOrDefault('c', 0) >= 1){
                 count += len-j;
-                track.put(s.charAt(i), track.get(s.charAt(i))-1);
+                c = s.charAt(i);
+                track.put(c, track.get(c)-1);
                 i++;
             }
             j++;
