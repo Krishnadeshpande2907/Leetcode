@@ -2,37 +2,31 @@ import java.math.BigInteger;
 
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        if (l1 == null || l1.val == 0) return l2;
-        if (l2 == null || l2.val == 0) return l1;
-
-        BigInteger one = BigInteger.ZERO;
-        BigInteger two = BigInteger.ZERO;
-        ListNode temp = l1;
-
-        while (temp != null) {   
-            one = one.multiply(BigInteger.TEN).add(BigInteger.valueOf(temp.val));
+        int carry = 0;
+        ListNode head1 = reverseLL(l1);
+        ListNode head2 = reverseLL(l2);
+        ListNode dummy = new ListNode(-1);
+        ListNode temp = dummy;
+        while(head1 != null || head2 != null){
+            int val1 = 0;
+            int val2 = 0;
+            if(head1 != null)   val1=head1.val;
+            if(head2 != null)   val2=head2.val;
+            int ans = carry + val1+val2;
+            ListNode node = new ListNode(ans%10);
+            if(ans>9)   carry = 1;
+            else    carry = 0;
+            temp.next = node;
+            temp = temp.next;
+            if(head1 !=null)   head1 = head1.next;
+            if(head2 !=null)   head2 = head2.next;
+        }
+        if(carry == 1){
+            ListNode node = new ListNode(1);
+            temp.next = node;
             temp = temp.next;
         }
-
-        temp = l2;
-        while (temp != null) {
-            two = two.multiply(BigInteger.TEN).add(BigInteger.valueOf(temp.val));
-            temp = temp.next;
-        }
-
-        BigInteger addition = one.add(two);
-        ListNode dum = new ListNode(-1);
-        ListNode head1 = dum;
-
-        while (addition.compareTo(BigInteger.ZERO) > 0) {
-            BigInteger ans = addition.mod(BigInteger.TEN);
-            ListNode node = new ListNode(ans.intValue());
-            head1.next = node;
-            head1 = head1.next;
-            addition = addition.divide(BigInteger.TEN);
-        }
-
-        return reverseLL(dum.next);
+        return reverseLL(dummy.next);
     }
 
     private ListNode reverseLL(ListNode head) {
